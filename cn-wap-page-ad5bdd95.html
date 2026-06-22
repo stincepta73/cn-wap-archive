@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JRS直播 · 体育赛事观看站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(145deg, #f9e2cf 0%, #fdcd9c 60%, #fbb785 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+            color: #2b211a;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 252, 246, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px -12px rgba(90, 50, 20, 0.25), 0 8px 16px rgba(0,0,0,0.05);
+            padding: 2.8rem 2.4rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 540px) {
+            .card {
+                padding: 2rem 1.4rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #613f28;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #dba07a;
+            border-radius: 4px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #78543b;
+            margin-top: -0.2rem;
+            margin-bottom: 1.8rem;
+            border-left: 3px solid #e6b38a;
+            padding-left: 1rem;
+            background: rgba(219, 160, 122, 0.06);
+            border-radius: 0 12px 12px 0;
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+            font-size: 1.02rem;
+            color: #3d2c1f;
+        }
+
+        .opening {
+            font-size: 1.2rem;
+            font-weight: 380;
+            background: #fcf1e6;
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px 20px 60px 20px;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+            border: 1px solid #f0d6bf;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0 1.8rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.6rem;
+        }
+
+        @media (max-width: 480px) {
+            .feature-list {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+        }
+
+        .feature-list li {
+            background: #f7ede4;
+            padding: 0.9rem 1.2rem;
+            border-radius: 40px 12px 40px 12px;
+            border-left: 4px solid #cb8f6b;
+            font-size: 0.98rem;
+            color: #402e20;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feature-list li::before {
+            content: "✦";
+            color: #b57952;
+            font-weight: 300;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .link-sentence {
+            background: #f5e4d4;
+            padding: 1.2rem 1.6rem;
+            border-radius: 60px 16px 60px 16px;
+            margin: 1.8rem 0 1.2rem 0;
+            border: 1px solid #e2c1a8;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: #844f2c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #dba07a;
+            padding-bottom: 1px;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+            border-radius: 0 0 4px 4px;
+        }
+
+        a:hover {
+            background: #f0d9c7;
+            border-bottom-color: #613f28;
+            color: #3f2a19;
+        }
+
+        .gentle-ending {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 2px dashed #dbb697;
+            font-style: normal;
+            color: #544031;
+            font-size: 0.98rem;
+        }
+
+        .faq-mini {
+            background: #f8efe7;
+            padding: 1.4rem 1.4rem 0.8rem 1.4rem;
+            border-radius: 28px 8px 28px 8px;
+            margin: 1.8rem 0 0.6rem 0;
+            border: 1px solid #e9ceb9;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #613f28;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-mini summary::before {
+            content: "☁️";
+            font-size: 1.1rem;
+            filter: grayscale(0.2);
+        }
+
+        .faq-mini p {
+            margin: 0.6rem 0 0.8rem 0;
+            padding-left: 0.6rem;
+            font-size: 0.96rem;
+            color: #4e3a2b;
+            border-left: 2px solid #d4a784;
+        }
+
+        .small-note {
+            font-size: 0.88rem;
+            color: #7a624d;
+            margin-top: 1.8rem;
+            text-align: right;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e7cfbb;
+            margin: 1.8rem 0 0.6rem 0;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+
+        <h1>JRS直播 · 一处安静的观看角落</h1>
+        <div class="subhead">从站点介绍与可信说明的角度，简短说几句</div>
+
+        <div class="opening">
+            ⚡ 一个可以停留的地方。
+        </div>
+
+        <p>
+            很多朋友在找体育赛事的观看方式时，常常遇到页面杂乱、信息不确定的情况。这个站点——<strong><a href="https://cn-wap-jrs.com">JRS直播</a></strong>——并非什么喧嚣的平台，它更像一个安静的聚合点，把各类比赛信号整理在一起。没有夸张的承诺，也没有弹窗的打扰，只提供一种平实的观看选择。
+        </p>
+
+        <p>
+            对于习惯在手机或平板上看球的人来说，直接打开就能找到比赛，不用绕来绕去，已经是一种难得的顺畅。以下是一些这个站点比较明显的特点，或许对你有用。
+        </p>
+
+        <!-- 特点列表：故事叙述式，语气克制 -->
+        <ul class="feature-list">
+            <li>覆盖足球、篮球、网球等主流赛事，信号相对稳定</li>
+            <li>移动端适配友好，加载速度在中等网络下表现不错</li>
+            <li>页面设计克制，没有满屏广告和自动播放的视频</li>
+            <li>比赛列表更新及时，通常提前一小时就会列出链接</li>
+            <li>支持直接观看，无需注册或登录繁琐流程</li>
+            <li>部分场次提供多个备用线路，增加容错率</li>
+        </ul>
+
+        <!-- 自然嵌入链接的句子 -->
+        <div class="link-sentence">
+            📌 如果你正在找一场球赛的直播，不妨先打开 <a href="https://cn-wap-jrs.com">JRS直播</a> 的首页，看看当前有哪些比赛在滚动。很多时候，答案就在那里。
+        </div>
+
+        <p>
+            当然，任何第三方聚合站点都可能遇到信号失效或线路调整的情况，这很正常。建议在比赛开始前几分钟先测试一下链接是否能正常加载，给自己留一点缓冲时间。
+        </p>
+
+        <!-- FAQ 摘要 / 温和说明 -->
+        <div class="faq-mini">
+            <details>
+                <summary>一些常见疑问的简短说明</summary>
+                <p><strong>Q: 是否需要安装额外软件？</strong> 不需要，直接通过浏览器打开即可，不推荐安装任何来路不明的插件。</p>
+                <p><strong>Q: 为什么有时候会卡顿？</strong> 和网络环境、源服务器负载都有关系，可以尝试切换线路或刷新一次。</p>
+                <p><strong>Q: 这个站点安全吗？</strong> 作为信息聚合页，它本身不提供视频源，只做链接整理，日常使用中建议开启广告拦截以减少干扰。</p>
+            </details>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="gentle-ending">
+            <p>一场比赛从开始到结束，有时不过九十分钟。找一个不费力就能打开的页面，安安静静看完整场，就已经很好了。希望这个站点能成为你偶尔想起的那个去处。</p>
+            <p style="margin-top: 0.6rem; opacity: 0.8;">—— 没有夸张，只是平实地介绍。</p>
+        </div>
+
+        <hr>
+        <div class="small-note">
+            <span>如果你觉得有用，可以把它收藏起来。下次想看球时，少翻几页。</span>
+        </div>
+
+    </div>
+</body>
+</html>
